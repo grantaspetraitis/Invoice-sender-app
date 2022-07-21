@@ -15,7 +15,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar-container">
-            <h1 style={{ color: "white", paddingLeft: 20, fontSize: "2em" }}>Debree</h1>
+            <h1 style={{ color: "white", paddingLeft: 20, fontSize: "2em" }}>Invoice Sender</h1>
             <ul className="navbar">
                 {login ? (
                     <>

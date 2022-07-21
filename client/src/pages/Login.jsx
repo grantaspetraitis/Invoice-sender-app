@@ -58,7 +58,7 @@ const Login = () => {
 
     return (
         <>
-            <h1 style={{ textAlign: "center", color: "#A668A7", marginTop: "200px" }}>Login to an existing account</h1>
+            <h1 style={{ textAlign: "center", color: "#007655", marginTop: "200px" }}>Login to an existing account</h1>
             <form className="form" onSubmit={onSubmit}>
                 <div className="form-element">
                     <input required className="input" type="email" value={email} placeholder="Email address" onChange={onChange} name="email" />
