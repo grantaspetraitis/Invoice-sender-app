@@ -1,0 +1,68 @@
+/* Navbar */
+
+.navbar li {
+  list-style: none;
+  padding: 30px;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.navbar li a:hover {
+  transform: scale(105%)
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  left: 35%;
+}
+
+.navbar-container {
+  display: flex;
+  position: fixed;
+  background: linear-gradient(100deg, #A668A7, rgb(237, 214, 255));
+  width: 100%;
+  top: 0;
+  z-index: 99;
+}
+
+/* Register form */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  
+}
+
+.form-element {
+  padding: 10px;
+}
+
+.input {
+  padding: 5px;
+  border-style: hidden hidden solid hidden;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.btn {
+  width: 100px;
+  border-style: hidden;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #A668A7;
+}
+
+.btn:hover {
+  background-color: #7d4b7e;
+}
