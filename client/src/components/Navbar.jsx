@@ -20,7 +20,7 @@ const Navbar = () => {
                 {login ? (
                     <>
                         <li>
-                            <Link to="/activity">Your activities</Link>
+                            <Link to="/newinvoice">Send an invoice</Link>
                         </li>
                         <li>
                             <Link to="/profile">My profile</Link>
