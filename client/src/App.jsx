@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Invoice from './pages/Invoice';
 import Verify from './pages/Verify';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/newinvoice' element={<Invoice />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/newinvoice' element={<Invoice />} />
           <Route path='/verify/:token' element={<Verify />} />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </Router>
     </AppContextProvider>

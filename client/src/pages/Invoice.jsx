@@ -1,17 +1,24 @@
+import { useEffect } from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../Context";
 
 const Invoice = () => {
 
     const navigate = useNavigate();
 
+    const { login } = useContext(AppContext);
+    const [checked, setChecked] = useState(null);
+    const [name, setName] = useState(null);
+    const [contacts, setContacts] = useState(null);
     const [formData, setFormData] = useState({
         email: '',
-        body: ''
+        month: ''
     });
 
-    const {email, body} = formData;
+    const { month } = formData;
 
     const onChange = e => {
         setFormData(prevState => ({
@@ -20,15 +27,33 @@ const Invoice = () => {
         }));
     }
 
+    const fetchContacts = async e => {
+        const response = await fetch('/profile', {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${login.token}`
+            }
+        });
+        const json = await response.json();
+        setContacts(json);
+    }
+
+    const handleChange = e => {
+        setChecked(e.target.value)
+        setName(e.target.name)
+    }
+
+    console.log(checked)
     const onSubmit = async (e) => {
         e.preventDefault();
-
+        console.log(e.target)
         const data = {
-            email: e.target.email.value,
-            body: e.target.body.value
+            email: checked,
+            month: e.target.month.value,
+            name: name
         }
 
-        const response = await fetch('/sendmail', {
+        const response = await fetch('/newinvoice', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json'
@@ -38,7 +63,7 @@ const Invoice = () => {
 
         const json = await response.json();
 
-        if(response.ok) {
+        if (response.ok) {
             toast.success('Sent invoice(s) successfully');
             navigate('/');
         } else {
@@ -46,20 +71,31 @@ const Invoice = () => {
         }
     }
 
+    useEffect(() => {
+        if (contacts === null) fetchContacts();
+    }, [])
+
     return (
         <>
-            <h1 style={{ textAlign: "center", color: "#007655", marginTop: "200px" }}>Login to an existing account</h1>
+            <h1 style={{ textAlign: "center", color: "#007655", marginTop: "200px" }}>Your invoice details</h1>
             <form className="form" onSubmit={onSubmit}>
-                <div className="form-element">
-                    <input required className="input" type="email" value={email} placeholder="Email addresses" onChange={onChange} name="email" />
+                <div className="checkbox">
+                    {
+                        contacts && contacts.map((contact, i) =>
+                            <>
+                                <label htmlFor={i} key={i}>{contact.contact_email}, {contact.contact_name} <input onChange={handleChange} id={i} type="checkbox" value={contact.contact_email} name={contact.contact_name}></input> </label>
+                                
+                            </>)
+                    }
                 </div>
                 <div className="form-element">
-                    <input required className="input" type="password" value={body} placeholder="Password" onChange={onChange} name="password" />
+                    <label>Which month is this payment for?</label>
+                    <input required className="input" type="text" value={month} placeholder="Month" onChange={onChange} name="month" />
                 </div>
                 <button className="btn">Send invoice</button>
             </form>
         </>
     );
 }
- 
+
 export default Invoice;

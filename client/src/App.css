@@ -66,3 +66,59 @@
 .btn:hover {
   background-color: #025c42;
 }
+
+/* Spinner */
+
+.spinner {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  overflow: hidden;
+  position: relative;
+  animation: text-color 2s ease-in-out alternate;
+}
+
+.spinner::before, .spinner::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  border: 15px solid transparent;
+  mix-blend-mode: overlay;
+  animation: rotate var(--duration) var(--timing) infinite;
+  pointer-events: none;
+}
+
+.spinner::before {
+  border-left-color: #007655;
+  --duration: 2s;
+  --timing: ease-in;
+}
+
+.spinner::after {
+  border-right-color:#025c42;
+  --duration: 2.5s;
+  --timing: ease-out;
+}
+
+/* Profile */
+
+.contact-card {
+  border: 1px solid rgb(208, 208, 208);
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  margin-top: 150px;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
+}
