@@ -9,7 +9,6 @@ exports.getHome = async (req, res) => {
 exports.sendInvoice = async (req, res) => {
   const { email, name, month, title, template } = req.body;
   const emails = Object.values(email);
-  const names = Object.keys(email);
   let token, decoded;
   try {
     token = req.headers.authorization.split(' ')[1];
@@ -28,23 +27,27 @@ exports.sendInvoice = async (req, res) => {
       if (err) throw err;
       if (result2.length > 0) {
         const { activity_name, bank, recipient_name, account_no, price, teacher_name, phone } = result2[0];
-        sendMail({
-          from: `"${fullname}" <dailesstudija5@gmail.com>`,
-          to: `${emails}`,
-          subject: `${title}`,
-          template: `${template}`,
-          context: {
-            name: name,
-            month: month,
-            activity_name: activity_name,
-            bank: bank,
-            recipient_name: recipient_name,
-            account_no: account_no,
-            price: price,
-            teacher_name: teacher_name,
-            phone: phone
-          }
-        })
+        if (emails.length > 0) {
+          sendMail({
+            from: `"${fullname}" <dailesstudija5@gmail.com>`,
+            to: `${emails}`,
+            subject: `${title}`,
+            template: `${template}`,
+            context: {
+              name: name,
+              month: month,
+              activity_name: activity_name,
+              bank: bank,
+              recipient_name: recipient_name,
+              account_no: account_no,
+              price: price,
+              teacher_name: teacher_name,
+              phone: phone
+            }
+          })
+        } else {
+          res.status(400).send({ error: 'Please select at least one recipient' })
+        }
       } else {
         res.status(400).send({ error: 'Fill out your details at the "Account details page"' })
       }
@@ -69,7 +72,7 @@ exports.sendSingleInvoice = async (req, res) => {
     if (err) throw err;
     const fullname = result[0].name;
     pool.query('SELECT * FROM user_details WHERE user_id = ?', [ID], (err, result2) => {
-      if(err) throw err;
+      if (err) throw err;
       const { activity_name, bank, recipient_name, account_no, price, teacher_name, phone } = result2[0];
       sendMail({
         from: `"${fullname}" <dailesstudija5@gmail.com>`,
@@ -175,7 +178,7 @@ exports.getDetails = async (req, res) => {
   const ID = decoded.user.user_id;
 
   pool.query('SELECT * FROM user_details WHERE user_id = ?', [ID], (err, result) => {
-    if(err) throw err;
+    if (err) throw err;
     res.status(200).send(result);
   })
 }
@@ -191,10 +194,10 @@ exports.updateDetails = async (req, res) => {
     return res.status(401).send({ error: 'You must be logged in to view your profile' });
   }
   const ID = decoded.user.user_id;
-  const { activity_title, bank, recipient_name, bank_account, price, teacher_name, phone } = req.body;
+  const { activity_name, bank, recipient_name, account_no, price, teacher_name, phone } = req.body;
 
-  pool.query('UPDATE user_details SET activity_name = ?, bank = ?, recipient_name = ?, account_no = ?, price = ?, teacher_name = ?, phone = ? WHERE user_id = ?', [activity_title, bank, recipient_name, bank_account, price, teacher_name, phone, ID], (err, result) => {
-    if(err) throw err;
+  pool.query('UPDATE user_details SET activity_name = ?, bank = ?, recipient_name = ?, account_no = ?, price = ?, teacher_name = ?, phone = ? WHERE user_id = ?', [activity_name, bank, recipient_name, account_no, price, teacher_name, phone, ID], (err, result) => {
+    if (err) throw err;
     res.status(200).send({ success: true })
   })
 }

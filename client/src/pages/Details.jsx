@@ -84,14 +84,18 @@ const Details = () => {
     return (
         <div className="details-page">
             {
-                details ?
+                details && details.length === 0 ?
+
+                    <h1 style={{ color: "#007655", marginTop: 200 }}>Add account details</h1>
+
+                    :
+
+                    details && 
 
                     <div className="details">
                         <h3 style={{ color: "#007655" }}>Your account details</h3>
                         {details.map((detail, i) => <DetailsCard key={i} data={detail} />)}
-                    </div> :
-
-                    <h1 style={{ color: "#007655" }}>Add details</h1>
+                    </div> 
             }
             {
                 details && details.length > 0 ? <UpdateDetails data={details}/> :

@@ -14,17 +14,14 @@ const Invoice = () => {
 
     const { login } = useContext(AppContext);
     const [checked, setChecked] = useState([]);
-    const [name, setName] = useState(null);
     const [contacts, setContacts] = useState(null);
     const [formData, setFormData] = useState({
         email: '',
         month: '',
         title: '',
-        select: 'Teal'
+        select: 'teal'
     });
-    const [select, setSelect] = useState({
-        select: 'Teal'
-    })
+
 
     const { month, title } = formData;
 
@@ -47,10 +44,17 @@ const Invoice = () => {
     }
 
     const handleChange = e => {
-        setChecked(prevState => ({
-            ...prevState,
-            [e.target.name]: e.target.value
-        }))
+        setChecked(prevState => {
+            if (e.target.checked) {
+                return {
+                    ...prevState,
+                    [e.target.name]: e.target.value
+                }
+            } else {
+                delete prevState[e.target.name]
+                return prevState
+            }
+        })
     }
 
     const onSubmit = async (e) => {
@@ -58,7 +62,6 @@ const Invoice = () => {
         const data = {
             email: checked,
             month: e.target.month.value,
-            name: name,
             title: e.target.title.value,
             template: e.target.select.value
         }
@@ -81,6 +84,8 @@ const Invoice = () => {
             toast.error(json.error);
         }
     }
+
+    console.log(checked)
 
     useEffect(() => {
         if (contacts === null) fetchContacts();
@@ -117,15 +122,15 @@ const Invoice = () => {
                     </select>
                 </div>
                 {
-                    formData.select === 'teal' && <Teal onChange={onChange}/>
+                    formData.select === 'teal' && <Teal onChange={onChange} />
                 }
                 {
-                    formData.select === 'mango' && <Mango onChange={onChange}/>
+                    formData.select === 'mango' && <Mango onChange={onChange} />
                 }
                 {
-                    formData.select === 'strawberry' && <Strawberry onChange={onChange}/>
+                    formData.select === 'strawberry' && <Strawberry onChange={onChange} />
                 }
-                
+
                 <button className="btn">Send invoice(s)</button>
             </form>
         </>

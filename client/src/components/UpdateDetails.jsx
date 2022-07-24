@@ -7,15 +7,7 @@ import { AppContext } from "../Context";
 const UpdateDetails = (props) => {
     const { login } = useContext(AppContext);
     const navigate = useNavigate();
-    const [formData, setFormData] = useState({
-        activity_title: '',
-        bank: '',
-        recipient_name: '',
-        bank_account: '',
-        price: '',
-        teacher_name: '',
-        phone: ''
-    })
+    const [formData, setFormData] = useState(props.data[0])
 
     const { activity_title, bank, recipient_name, bank_account, price, teacher_name, phone } = formData;
 
@@ -28,15 +20,6 @@ const UpdateDetails = (props) => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        const data = {
-            activity_title: e.target.activity_title.value,
-            bank: e.target.bank.value,
-            recipient_name: e.target.recipient_name.value,
-            bank_account: e.target.bank_account.value,
-            price: e.target.price.value,
-            teacher_name: e.target.teacher_name.value,
-            phone: e.target.phone.value
-        }
 
         const response = await fetch('/details', {
             method: 'PATCH',
@@ -44,7 +27,7 @@ const UpdateDetails = (props) => {
                 "Content-Type": 'application/json',
                 "Authorization": `Bearer ${login.token}`
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(formData)
         })
 
         const json = await response.json();
@@ -57,37 +40,35 @@ const UpdateDetails = (props) => {
         }
     }
 
-    console.log(props)
-
     return (
         <form className="form-account-update" onSubmit={onSubmit}>
             <div className="form-element">
                 <label>Activity name: </label>
-                <input className="input" type="text" defaultValue={props.data[0].activity_name} placeholder="Activity name" onChange={onChange} name="activity_title" />
+                <input className="input" type="text" value={formData.activity_name} placeholder="Activity name" onChange={onChange} name="activity_name" />
             </div>
             <div className="form-element">
                 <label>Bank: </label>
-                <input className="input" type="text" defaultValue={props.data[0].bank} placeholder="Bank" onChange={onChange} name="bank" />
+                <input className="input" type="text" value={formData.bank} placeholder="Bank" onChange={onChange} name="bank" />
             </div>
             <div className="form-element">
-                <label>recipient's name: </label>
-                <input className="input" type="text" defaultValue={props.data[0].recipient_name} placeholder="Recipient's name" onChange={onChange} name="recipient_name" />
+                <label>Recipient's name: </label>
+                <input className="input" type="text" value={formData.recipient_name} placeholder="Recipient's name" onChange={onChange} name="recipient_name" />
             </div>
             <div className="form-element">
                 <label>Account no.: </label>
-                <input className="input" type="text" defaultValue={props.data[0].account_no} placeholder="Account no." onChange={onChange} name="bank_account" />
+                <input className="input" type="text" value={formData.account_no} placeholder="Account no." onChange={onChange} name="account_no" />
             </div>
             <div className="form-element">
                 <label>Price: </label>
-                <input className="input" type="text" defaultValue={props.data[0].price} placeholder="Price" onChange={onChange} name="price" />
+                <input className="input" type="text" value={formData.price} placeholder="Price" onChange={onChange} name="price" />
             </div>
             <div className="form-element">
                 <label>Teacher's name: </label>
-                <input className="input" type="text" defaultValue={props.data[0].teacher_name} placeholder="Teacher's name" onChange={onChange} name="teacher_name" />
+                <input className="input" type="text" value={formData.teacher_name} placeholder="Teacher's name" onChange={onChange} name="teacher_name" />
             </div>
             <div className="form-element">
-                <label>Phone no: </label>
-                <input className="input" type="text" defaultValue={props.data[0].phone} placeholder="Phone" onChange={onChange} name="phone" />
+                <label>Phone no.: </label>
+                <input className="input" type="text" value={formData.phone} placeholder="Phone" onChange={onChange} name="phone" />
             </div>
             <button className="btn">Update</button>
         </form>
