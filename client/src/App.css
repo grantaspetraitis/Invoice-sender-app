@@ -233,3 +233,17 @@
   margin-bottom: 50px;
   padding: 30px;
 }
+
+.details {
+  margin-top: 200px;
+  margin-left: 50px;
+}
+
+.details-page {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-account-update {
+  margin-top: 200px;
+}

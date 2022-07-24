@@ -12,5 +12,7 @@ router.post('/newsingleinvoice', user.sendSingleInvoice);
 router.get('/profile', user.getProfile);
 router.post('/addcontacts', user.addContact);
 router.post('/details', user.addDetails);
+router.get('/details', user.getDetails);
+router.patch('/details', user.updateDetails);
 
 module.exports = router;

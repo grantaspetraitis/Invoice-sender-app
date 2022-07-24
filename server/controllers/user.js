@@ -161,3 +161,40 @@ exports.addDetails = async (req, res) => {
     res.status(200).send({ success: true });
   })
 }
+
+exports.getDetails = async (req, res) => {
+  let token, decoded;
+
+  try {
+    token = req.headers.authorization.split(' ')[1];
+    decoded = jwt.verify(token, process.env.JWT_SECRET);
+  } catch (err) {
+    console.log(err);
+    return res.status(401).send({ error: 'You must be logged in to view your profile' });
+  }
+  const ID = decoded.user.user_id;
+
+  pool.query('SELECT * FROM user_details WHERE user_id = ?', [ID], (err, result) => {
+    if(err) throw err;
+    res.status(200).send(result);
+  })
+}
+
+exports.updateDetails = async (req, res) => {
+  let token, decoded;
+
+  try {
+    token = req.headers.authorization.split(' ')[1];
+    decoded = jwt.verify(token, process.env.JWT_SECRET);
+  } catch (err) {
+    console.log(err);
+    return res.status(401).send({ error: 'You must be logged in to view your profile' });
+  }
+  const ID = decoded.user.user_id;
+  const { activity_title, bank, recipient_name, bank_account, price, teacher_name, phone } = req.body;
+
+  pool.query('UPDATE user_details SET activity_name = ?, bank = ?, recipient_name = ?, account_no = ?, price = ?, teacher_name = ?, phone = ? WHERE user_id = ?', [activity_title, bank, recipient_name, bank_account, price, teacher_name, phone, ID], (err, result) => {
+    if(err) throw err;
+    res.status(200).send({ success: true })
+  })
+}
