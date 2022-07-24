@@ -26,6 +26,9 @@ const Navbar = () => {
                             <Link to="/profile">My profile</Link>
                         </li>
                         <li>
+                            <Link to="/details">Account details</Link>
+                        </li>
+                        <li>
                             <span style={{ cursor: "pointer" }} onClick={logout}>Log out</span>
                         </li>
 

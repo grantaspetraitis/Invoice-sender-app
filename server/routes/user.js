@@ -11,5 +11,6 @@ router.post('/newinvoice', user.sendInvoice);
 router.post('/newsingleinvoice', user.sendSingleInvoice);
 router.get('/profile', user.getProfile);
 router.post('/addcontacts', user.addContact);
+router.post('/details', user.addDetails);
 
 module.exports = router;

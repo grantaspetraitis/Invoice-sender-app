@@ -10,6 +10,7 @@ import Invoice from './pages/Invoice';
 import Verify from './pages/Verify';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
+import Details from './pages/Details';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/verify/:token' element={<Verify />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/details' element={<Details />} />
         </Routes>
         <Footer />
       </Router>

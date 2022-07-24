@@ -3,6 +3,9 @@ import { useContext } from "react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Mango from "../components/Mango";
+import Strawberry from "../components/Strawberry";
+import Teal from "../components/Teal";
 import { AppContext } from "../Context";
 
 const Invoice = () => {
@@ -16,8 +19,12 @@ const Invoice = () => {
     const [formData, setFormData] = useState({
         email: '',
         month: '',
-        title: ''
+        title: '',
+        select: 'Teal'
     });
+    const [select, setSelect] = useState({
+        select: 'Teal'
+    })
 
     const { month, title } = formData;
 
@@ -52,7 +59,8 @@ const Invoice = () => {
             email: checked,
             month: e.target.month.value,
             name: name,
-            title: e.target.title.value
+            title: e.target.title.value,
+            template: e.target.select.value
         }
 
         const response = await fetch('/newinvoice', {
@@ -68,7 +76,7 @@ const Invoice = () => {
 
         if (response.ok) {
             toast.success('Sent invoice(s) successfully');
-            navigate('/');
+            navigate('/profile');
         } else {
             toast.error(json.error);
         }
@@ -84,13 +92,12 @@ const Invoice = () => {
             <form className="form" onSubmit={onSubmit}>
                 <div className="checkbox">
                     {/* <label>Select all <input type="checkbox"></input></label> */}
-                    
+                    <h3 style={{ textAlign: "center", color: "#007655" }}>Select recipients</h3>
                     {
                         contacts && contacts.map((contact, i) =>
-                            <>
+                            <div key={contact.contact_id}>
                                 <label style={{ padding: 7 }} htmlFor={i} key={contact.contact_id}>{contact.contact_email}, {contact.contact_name} <input onChange={handleChange} id={i} type="checkbox" value={contact.contact_email} name={contact.contact_name}></input> </label>
-                                
-                            </>)
+                            </div>)
                     }
                 </div>
                 <div className="form-element">
@@ -101,6 +108,24 @@ const Invoice = () => {
                     <label>Which month is this invoice for?</label>
                     <input required className="input" type="text" value={month} placeholder="Month" onChange={onChange} name="month" />
                 </div>
+                <div className="form-element">
+                    <label>Select template</label>
+                    <select required className="select" type="select" value={formData.select} onChange={onChange} name="select">
+                        <option value="teal">Teal</option>
+                        <option value="mango">Mango</option>
+                        <option value="strawberry">Oregon (English)</option>
+                    </select>
+                </div>
+                {
+                    formData.select === 'teal' && <Teal onChange={onChange}/>
+                }
+                {
+                    formData.select === 'mango' && <Mango onChange={onChange}/>
+                }
+                {
+                    formData.select === 'strawberry' && <Strawberry onChange={onChange}/>
+                }
+                
                 <button className="btn">Send invoice(s)</button>
             </form>
         </>
