@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Invoice from './pages/Invoice';
 import Verify from './pages/Verify';
 import Profile from './pages/Profile';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/verify/:token' element={<Verify />} />
           <Route path='/profile' element={<Profile />} />
         </Routes>
+        <Footer />
       </Router>
     </AppContextProvider>
   );

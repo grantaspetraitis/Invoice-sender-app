@@ -78,8 +78,6 @@ const Invoice = () => {
         if (contacts === null) fetchContacts();
     }, [])
 
-    console.log(checked)
-
     return (
         <>
             <h1 style={{ textAlign: "center", color: "#007655", marginTop: "200px" }}>Your invoice details</h1>

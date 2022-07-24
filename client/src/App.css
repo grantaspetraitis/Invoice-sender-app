@@ -37,8 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
-  
+  margin-bottom: 50px;
 }
 
 .form-element {
@@ -132,17 +131,78 @@
 
 .contact-card {
   border: 1px solid rgb(208, 208, 208);
-  padding: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
   display: flex;
-  margin-top: 150px;
-  flex-wrap:nowrap;
+  padding: 20px;
+  margin-top: 50px;
+  flex-flow: row wrap;
 }
 
 .checkbox {
   display: flex;
   flex-direction: column;
   padding-bottom: 50px;
+}
+
+@media (max-width: 600px){
+  
+  .navbar {
+    display: flex;
+    position: relative;
+  }
+  
+  .navbar-container {
+    display: flex;
+    position: fixed;
+    background: linear-gradient(100deg, #007655, rgb(140, 254, 211));
+    width: 100%;
+    top: 0;
+    z-index: 99;
+  }
+}
+
+.hero-rect {
+  margin-top: 300px;
+  margin-left: 200px;
+  background: linear-gradient(130deg, #007655, rgb(140, 254, 211));
+  box-shadow: -50px -30px rgba(215, 215, 215, 0.492);
+  display: flex;
+  justify-content: center;
+  grid-column: 1 / 1;
+  grid-row: 1 / 6;
+}
+
+.home-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  grid-template-rows: repeat(10, 100px);
+}
+
+.hero-paragraph {
+  color: white;
+  font-family: sans-serif;
+  width: 80%;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.form-container-home {
+  grid-column: 2 / 3;
+  grid-row: 4 / 8;
+}
+
+/* Footer */
+
+.footer {
+  height: 150px;
+  background-color: rgb(222, 222, 222);
+  display: flex;
+  justify-content: center;
 }

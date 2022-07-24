@@ -57,7 +57,7 @@ const Profile = () => {
 
         if (response.ok) {
             toast.success('Added contacts successfully!');
-            navigate('/profile');
+            navigate(0);
         } else {
             toast.error(json.error);
         }
@@ -69,12 +69,13 @@ const Profile = () => {
 
     return (
         <>
+        <h1 style={{ color: "#007655", marginTop: 150, padding: 10 }}>Contacts</h1>
             <div className="container">
                 {
                     contacts ? contacts.map((contact, i) => <ContactCard key={i} data={contact}></ContactCard>) : <div className="spinner"></div>
                 }
             </div>
-            <h1 style={{ textAlign: "center", color: "#007655", marginTop: "200px" }}>Add new contact(s)</h1>
+            <h1 style={{ textAlign: "center", color: "#007655", marginTop: "50px" }}>Add new contact(s)</h1>
             <form className="form" onSubmit={onSubmit}>
                 <div className="form-element">
                     <input required className="input" style={{ width: 500 }} type="text" value={email} placeholder="Email addresses (comma separated)" onChange={onChange} name="email" />

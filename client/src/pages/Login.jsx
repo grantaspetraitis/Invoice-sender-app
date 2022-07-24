@@ -44,7 +44,7 @@ const Login = () => {
 
         if(response.ok) {
             toast.success('Logged in successfully')
-            navigate('/')
+            navigate('/profile')
             setLogin({
                 username: json.username,
                 token: json.token,
