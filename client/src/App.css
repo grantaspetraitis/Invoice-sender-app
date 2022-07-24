@@ -69,6 +69,29 @@
 
 /* Spinner */
 
+@keyframes text-color {
+  0% {
+    color: rgba(106, 106, 106, 0.526)
+  }
+
+  50% {
+    color: rgba(106, 106, 106, 0.821)
+  }
+
+  100% {
+    color: rgba(106, 106, 106, 0.526)
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .spinner {
   width: 100px;
   height: 100px;
@@ -115,6 +138,7 @@
 .container {
   display: flex;
   margin-top: 150px;
+  flex-wrap:nowrap;
 }
 
 .checkbox {

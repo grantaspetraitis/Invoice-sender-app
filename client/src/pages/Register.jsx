@@ -61,7 +61,7 @@ const Register = () => {
             <h1 style={{ textAlign: "center", color: "#007655", marginTop: "200px" }}>Sign up for a new account</h1>
             <form className="form" onSubmit={onSubmit}>
                 <div className="form-element">
-                    <input required className="input" type="text" value={name} placeholder="Name" onChange={onChange} name="name" />
+                    <input required className="input" type="text" value={name} placeholder="Full name" onChange={onChange} name="name" />
                 </div>
                 <div className="form-element">
                     <input required className="input" type="text" value={username} placeholder="Username" onChange={onChange} name="username" />
