@@ -13,7 +13,7 @@ exports.registerUser = async (req, res) => {
     //     expiresIn: '60s'
     // });
     const verifyToken = crypto.randomBytes(128).toString('hex');
-    const verifyUrl = `http://localhost:3001/verify/${verifyToken}`
+    const verifyUrl = `https://invoice-sender-app.vercel.app/verify/${verifyToken}`
     const timestamp = registerDate.getTime();
     const tokenExpiration = new Date(timestamp + 15 * 60 * 1000);
     // const tokenExpiration = new Date(tokenExpirationStamp);
