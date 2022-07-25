@@ -1,30 +1,46 @@
 /* Navbar */
 
-.navbar li {
+.burger-menu li {
   list-style: none;
   padding: 30px;
 }
 
-.burger {
+.navbar {
   display: none;
 }
 
-.navbar li a {
+.close-icon {
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(327deg) brightness(103%) contrast(102%);
+  zoom: 170%;
+  position: absolute;
+  left: 85%;
+  bottom: 85%;
+}
+
+.burger {
+  position: absolute;
+  left: 85%;
+  bottom: 20%;
+  zoom: 170%;
+  padding-top: 1px;
+  padding-left: 2px;
+  padding-right: 2px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 3px;
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(327deg) brightness(103%) contrast(102%);
+}
+
+.hidden {
+  display: none;
+}
+
+.burger-menu li a {
   text-decoration: none;
   color: white;
   font-weight: bold;
   font-size: 1.3em;
 }
 
-.navbar li a:hover {
-  transform: scale(105%)
-}
-
-.navbar {
-  display: flex;
-  position: relative;
-  left: 20%;
-}
 
 .navbar-container {
   display: flex;
@@ -90,6 +106,7 @@
   0% {
     transform: rotate(0);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -107,7 +124,8 @@
   animation: text-color 2s ease-in-out alternate;
 }
 
-.spinner::before, .spinner::after {
+.spinner::before,
+.spinner::after {
   content: '';
   position: absolute;
   width: 50%;
@@ -126,7 +144,7 @@
 }
 
 .spinner::after {
-  border-right-color:#025c42;
+  border-right-color: #025c42;
   --duration: 2.5s;
   --timing: ease-out;
 }
@@ -153,13 +171,8 @@
   padding-bottom: 50px;
 }
 
-@media (max-width: 600px){
-  
-  .navbar {
-    display: flex;
-    position: relative;
-  }
-  
+@media (min-width: 1200px) {
+
   .navbar-container {
     display: flex;
     position: fixed;
@@ -169,8 +182,14 @@
     z-index: 99;
   }
 
-  .burger {
-    display: unset;
+  .burger-style {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+    position: relative;
+    left: 20%;
   }
 }
 
@@ -217,7 +236,7 @@
 
 .select {
   border-style: hidden;
-  background-color:rgba(214, 214, 214, 0)
+  background-color: rgba(214, 214, 214, 0)
 }
 
 .select:focus {
