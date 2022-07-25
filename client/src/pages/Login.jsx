@@ -32,7 +32,7 @@ const Login = () => {
             password: e.target.password.value
         }
 
-        const response = await fetch('/login', {
+        const response = await fetch('https://invoice-sender-app.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json'
