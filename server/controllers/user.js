@@ -36,7 +36,7 @@ exports.sendInvoice = async (req, res) => {
         if (emails.length > 0) {
           sendMail({
             from: `"${fullname}" <dailesstudija5@gmail.com>`,
-            to: '',
+            to: [],
             bcc: `${emails}`,
             subject: `${title}`,
             template: `${template}`,
