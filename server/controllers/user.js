@@ -2,9 +2,9 @@ const pool = require('../db').getPool();
 const jwt = require('jsonwebtoken');
 const sendMail = require('../send-mail');
 
-exports.getHome = async (req, res) => {
-
-}
+// exports.getHome = async (req, res) => {
+//   pool.query('SELECT ')
+// }
 
 exports.sendInvoice = async (req, res) => {
   const { email, name, month, title, template } = req.body;
