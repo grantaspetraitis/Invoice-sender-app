@@ -82,51 +82,54 @@ const Details = () => {
 
 
     return (
-        <div className="details-page">
-            {
-                details && details.length === 0 ?
+        login ?
+            <div className="details-page">
+                {
+                    details && details.length === 0 ?
 
-                    <h1 style={{ color: "#007655", marginTop: 200 }}>Add account details</h1>
+                        <h1 style={{ color: "#007655", marginTop: 200 }}>Add account details</h1>
 
-                    :
+                        :
 
-                    details && 
+                        details &&
 
-                    <div className="details">
-                        <h3 style={{ color: "#007655" }}>Your account details</h3>
-                        {details.map((detail, i) => <DetailsCard key={i} data={detail} />)}
-                    </div> 
-            }
-            {
-                details && details.length > 0 ? <UpdateDetails data={details}/> :
+                        <div className="details">
+                            <h3 style={{ color: "#007655" }}>Your account details</h3>
+                            {details.map((detail, i) => <DetailsCard key={i} data={detail} />)}
+                        </div>
+                }
+                {
+                    details && details.length > 0 ? <UpdateDetails data={details} /> :
 
-                    <form className="form-account" onSubmit={onSubmit}>
-                        <div className="form-element">
-                            <input required className="input" type="text" alue={activity_title} placeholder="Activity name" onChange={onChange} name="activity_title" />
-                        </div>
-                        <div className="form-element">
-                            <input required className="input" type="text" value={bank} placeholder="Bank" onChange={onChange} name="bank" />
-                        </div>
-                        <div className="form-element">
-                            <input required className="input" type="text" value={recipient_name} placeholder="Recipient's name" onChange={onChange} name="recipient_name" />
-                        </div>
-                        <div className="form-element">
-                            <input required className="input" type="text" value={bank_account} placeholder="Account no." onChange={onChange} name="bank_account" />
-                        </div>
-                        <div className="form-element">
-                            <input required className="input" type="text" value={price} placeholder="Price" onChange={onChange} name="price" />
-                        </div>
-                        <div className="form-element">
-                            <input required className="input" type="text" value={teacher_name} placeholder="Teacher's name" onChange={onChange} name="teacher_name" />
-                        </div>
-                        <div className="form-element">
-                            <input required className="input" type="text" value={phone} placeholder="Phone" onChange={onChange} name="phone" />
-                        </div>
-                        <button className="btn">Submit</button>
-                    </form>
-            }
+                        <form className="form-account" onSubmit={onSubmit}>
+                            <div className="form-element">
+                                <input required className="input" type="text" alue={activity_title} placeholder="Activity name" onChange={onChange} name="activity_title" />
+                            </div>
+                            <div className="form-element">
+                                <input required className="input" type="text" value={bank} placeholder="Bank" onChange={onChange} name="bank" />
+                            </div>
+                            <div className="form-element">
+                                <input required className="input" type="text" value={recipient_name} placeholder="Recipient's name" onChange={onChange} name="recipient_name" />
+                            </div>
+                            <div className="form-element">
+                                <input required className="input" type="text" value={bank_account} placeholder="Account no." onChange={onChange} name="bank_account" />
+                            </div>
+                            <div className="form-element">
+                                <input required className="input" type="text" value={price} placeholder="Price" onChange={onChange} name="price" />
+                            </div>
+                            <div className="form-element">
+                                <input required className="input" type="text" value={teacher_name} placeholder="Teacher's name" onChange={onChange} name="teacher_name" />
+                            </div>
+                            <div className="form-element">
+                                <input required className="input" type="text" value={phone} placeholder="Phone" onChange={onChange} name="phone" />
+                            </div>
+                            <button className="btn">Submit</button>
+                        </form>
+                }
 
-        </div>
+            </div> :
+
+            <h1 style={{ color: "#007655", marginTop: 200, marginBottom: 200, padding: 50 }}>Please login or register to view this page</h1>
     );
 }
 

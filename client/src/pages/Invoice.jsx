@@ -91,48 +91,51 @@ const Invoice = () => {
     }, [])
 
     return (
-        <>
-            <h1 style={{ textAlign: "center", color: "#007655", marginTop: "200px" }}>Your invoice details</h1>
-            <form className="form" onSubmit={onSubmit}>
-                <div className="checkbox">
-                    {/* <label>Select all <input type="checkbox"></input></label> */}
-                    <h3 style={{ textAlign: "center", color: "#007655" }}>Select recipients</h3>
+        login ?
+            <>
+                <h1 style={{ textAlign: "center", color: "#007655", marginTop: "200px" }}>Your invoice details</h1>
+                <form className="form" onSubmit={onSubmit}>
+                    <div className="checkbox">
+                        {/* <label>Select all <input type="checkbox"></input></label> */}
+                        <h3 style={{ textAlign: "center", color: "#007655" }}>Select recipients</h3>
+                        {
+                            contacts && contacts.map((contact, i) =>
+                                <div key={contact.contact_id}>
+                                    <label style={{ padding: 7 }} htmlFor={i} key={contact.contact_id}>{contact.contact_email}, {contact.contact_name} <input onChange={handleChange} id={i} type="checkbox" value={contact.contact_email} name={contact.contact_name}></input> </label>
+                                </div>)
+                        }
+                    </div>
+                    <div className="form-element">
+                        <label>Invoice title</label>
+                        <input required className="input" type="text" value={title} placeholder="Invoice title" onChange={onChange} name="title" />
+                    </div>
+                    <div className="form-element">
+                        <label>Which month is this invoice for?</label>
+                        <input required className="input" type="text" value={month} placeholder="Month" onChange={onChange} name="month" />
+                    </div>
+                    <div className="form-element">
+                        <label>Select template</label>
+                        <select required className="select" type="select" value={formData.select} onChange={onChange} name="select">
+                            <option value="teal">Teal</option>
+                            <option value="mango">Mango</option>
+                            <option value="strawberry">Oregon (English)</option>
+                        </select>
+                    </div>
                     {
-                        contacts && contacts.map((contact, i) =>
-                            <div key={contact.contact_id}>
-                                <label style={{ padding: 7 }} htmlFor={i} key={contact.contact_id}>{contact.contact_email}, {contact.contact_name} <input onChange={handleChange} id={i} type="checkbox" value={contact.contact_email} name={contact.contact_name}></input> </label>
-                            </div>)
+                        formData.select === 'teal' && <Teal onChange={onChange} />
                     }
-                </div>
-                <div className="form-element">
-                    <label>Invoice title</label>
-                    <input required className="input" type="text" value={title} placeholder="Invoice title" onChange={onChange} name="title" />
-                </div>
-                <div className="form-element">
-                    <label>Which month is this invoice for?</label>
-                    <input required className="input" type="text" value={month} placeholder="Month" onChange={onChange} name="month" />
-                </div>
-                <div className="form-element">
-                    <label>Select template</label>
-                    <select required className="select" type="select" value={formData.select} onChange={onChange} name="select">
-                        <option value="teal">Teal</option>
-                        <option value="mango">Mango</option>
-                        <option value="strawberry">Oregon (English)</option>
-                    </select>
-                </div>
-                {
-                    formData.select === 'teal' && <Teal onChange={onChange} />
-                }
-                {
-                    formData.select === 'mango' && <Mango onChange={onChange} />
-                }
-                {
-                    formData.select === 'strawberry' && <Strawberry onChange={onChange} />
-                }
+                    {
+                        formData.select === 'mango' && <Mango onChange={onChange} />
+                    }
+                    {
+                        formData.select === 'strawberry' && <Strawberry onChange={onChange} />
+                    }
 
-                <button className="btn">Send invoice(s)</button>
-            </form>
-        </>
+                    <button className="btn">Send invoice(s)</button>
+                </form>
+            </> :
+
+            <h1 style={{ color: "#007655", marginTop: 200, marginBottom: 200, padding: 50 }}>Please login or register to view this page</h1>
     );
 }
 

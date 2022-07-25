@@ -64,28 +64,31 @@ const Profile = () => {
     }
 
     useEffect(() => {
-        if(contacts === null) fetchContacts();
+        if (contacts === null) fetchContacts();
     })
 
     return (
-        <>
-        <h1 style={{ color: "#007655", marginTop: 150, padding: 10 }}>Contacts</h1>
-            <div className="container">
-                {
-                    contacts ? contacts.map((contact, i) => <ContactCard key={i} data={contact}></ContactCard>) : <div className="spinner"></div>
-                }
-            </div>
-            <h1 style={{ textAlign: "center", color: "#007655", marginTop: "50px" }}>Add new contact(s)</h1>
-            <form className="form" onSubmit={onSubmit}>
-                <div className="form-element">
-                    <input required className="contact-input" type="text" value={email} placeholder="Email addresses (comma separated)" onChange={onChange} name="email" />
+        login ?
+            <>
+                <h1 style={{ color: "#007655", marginTop: 150, padding: 10 }}>Contacts</h1>
+                <div className="container">
+                    {
+                        contacts ? contacts.map((contact, i) => <ContactCard key={i} data={contact}></ContactCard>) : <div className="spinner"></div>
+                    }
                 </div>
-                <div className="form-element">
-                    <input required className="contact-input" type="text" value={body} placeholder="Names (comma separated)" onChange={onChange} name="body" />
-                </div>
-                <button className="btn">Add</button>
-            </form>
-        </>
+                <h1 style={{ textAlign: "center", color: "#007655", marginTop: "50px" }}>Add new contact(s)</h1>
+                <form className="form" onSubmit={onSubmit}>
+                    <div className="form-element">
+                        <input required className="contact-input" type="text" value={email} placeholder="Email addresses (comma separated)" onChange={onChange} name="email" />
+                    </div>
+                    <div className="form-element">
+                        <input required className="contact-input" type="text" value={body} placeholder="Names (comma separated)" onChange={onChange} name="body" />
+                    </div>
+                    <button className="btn">Add</button>
+                </form>
+            </> :
+
+            <h1 style={{ color: "#007655", marginTop: 200, marginBottom: 200, padding: 50 }}>Please login or register to view this page</h1>
     );
 }
 
