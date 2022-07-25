@@ -171,6 +171,12 @@
   padding-bottom: 50px;
 }
 
+.contact-input {
+  padding: 5px;
+  border-style: hidden hidden solid hidden;
+  width: 200px;
+}
+
 /* Hero */
 
 .hero-rect {
@@ -271,6 +277,10 @@
   .form-container-home {
     grid-column: 2 / 3;
     grid-row: 4 / 8;
+  }
+
+  .contact-input {
+    width: 500px;
   }
 
 }
