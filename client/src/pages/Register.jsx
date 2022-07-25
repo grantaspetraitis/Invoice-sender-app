@@ -45,7 +45,7 @@ const Register = () => {
             })
 
             if (response.ok) {
-                toast.success('Registered successfully')
+                toast.success('Registered successfully. Verification link sent to your email address')
                 navigate('/login')
             } else {
                 const json = await response.json();

@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import AppContextProvider from './Context';
 import Navbar from './components/Navbar';
@@ -15,7 +15,13 @@ import Details from './pages/Details';
 function App() {
   return (
     <AppContextProvider>
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 15000
+        }}
+        />
       <Router>
         <Navbar />
         <Routes>
