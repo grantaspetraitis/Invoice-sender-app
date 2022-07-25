@@ -34,24 +34,25 @@ exports.sendInvoice = async (req, res) => {
       if (result2.length > 0) {
         const { activity_name, bank, recipient_name, account_no, price, teacher_name, phone } = result2[0];
         if (emails.length > 0) {
-          sendMail({
-            from: `"${fullname}" <dailesstudija5@gmail.com>`,
-            to: [],
-            bcc: `${emails}`,
-            subject: `${title}`,
-            template: `${template}`,
-            context: {
-              name: name,
-              month: month,
-              activity_name: activity_name,
-              bank: bank,
-              recipient_name: recipient_name,
-              account_no: account_no,
-              price: price,
-              teacher_name: teacher_name,
-              phone: phone
-            }
-          })
+          for (let i = 0; i < emails.length; i++) {
+            sendMail({
+              from: `"${fullname}" <dailesstudija5@gmail.com>`,
+              to: `${emails[i]}`,
+              subject: `${title}`,
+              template: `${template}`,
+              context: {
+                name: name,
+                month: month,
+                activity_name: activity_name,
+                bank: bank,
+                recipient_name: recipient_name,
+                account_no: account_no,
+                price: price,
+                teacher_name: teacher_name,
+                phone: phone
+              }
+            })
+          }
         } else {
           res.status(400).send({ error: 'Please select at least one recipient' })
         }
