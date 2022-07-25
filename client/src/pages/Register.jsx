@@ -54,8 +54,6 @@ const Register = () => {
         }
     }
 
-
-
     return (
         <>
             <h1 style={{ textAlign: "center", color: "#007655", marginTop: "50px" }}>Sign up for a new account</h1>

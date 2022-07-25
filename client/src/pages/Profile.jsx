@@ -78,10 +78,10 @@ const Profile = () => {
             <h1 style={{ textAlign: "center", color: "#007655", marginTop: "50px" }}>Add new contact(s)</h1>
             <form className="form" onSubmit={onSubmit}>
                 <div className="form-element">
-                    <input required className="input" style={{ width: 500 }} type="text" value={email} placeholder="Email addresses (comma separated)" onChange={onChange} name="email" />
+                    <input required className="input" style={{ width: 370 }} type="text" value={email} placeholder="Email addresses (comma separated)" onChange={onChange} name="email" />
                 </div>
                 <div className="form-element">
-                    <input required className="input" style={{ width: 500 }} type="text" value={body} placeholder="Names (comma separated)" onChange={onChange} name="body" />
+                    <input required className="input" style={{ width: 370 }} type="text" value={body} placeholder="Names (comma separated)" onChange={onChange} name="body" />
                 </div>
                 <button className="btn">Add</button>
             </form>
