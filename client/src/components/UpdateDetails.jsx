@@ -21,7 +21,7 @@ const UpdateDetails = (props) => {
     const onSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('/details', {
+        const response = await fetch('https://invoice-sender-app.herokuapp.com/details', {
             method: 'PATCH',
             headers: {
                 "Content-Type": 'application/json',

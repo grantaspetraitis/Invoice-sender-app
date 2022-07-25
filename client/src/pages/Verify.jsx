@@ -10,7 +10,7 @@ const Verify = () => {
 
     const params = useParams();
     const verify = async () => {
-        const response = await fetch(`/verify/${params.token}`)
+        const response = await fetch(`https://invoice-sender-app.herokuapp.com/verify/${params.token}`)
         const json = await response.json();
         if(json.success){
             setIsVerified(true);

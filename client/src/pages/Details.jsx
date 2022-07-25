@@ -44,7 +44,7 @@ const Details = () => {
             phone: e.target.phone.value
         }
 
-        const response = await fetch('/details', {
+        const response = await fetch('https://invoice-sender-app.herokuapp.com/details', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',
@@ -64,7 +64,7 @@ const Details = () => {
     }
 
     const fetchDetails = async e => {
-        const response = await fetch('/details', {
+        const response = await fetch('https://invoice-sender-app.herokuapp.com/details', {
             headers: {
                 "Content-Type": 'application/json',
                 "Authorization": `Bearer ${login.token}`

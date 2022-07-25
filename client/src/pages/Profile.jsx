@@ -26,7 +26,7 @@ const Profile = () => {
     }
 
     const fetchContacts = async e => {
-        const response = await fetch('/profile', {
+        const response = await fetch('https://invoice-sender-app.herokuapp.com/profile', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${login.token}`
@@ -44,7 +44,7 @@ const Profile = () => {
             body: e.target.body.value
         }
 
-        const response = await fetch('/addcontacts', {
+        const response = await fetch('https://invoice-sender-app.herokuapp.com/addcontacts', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',

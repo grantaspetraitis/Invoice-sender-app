@@ -33,7 +33,7 @@ const Invoice = () => {
     }
 
     const fetchContacts = async e => {
-        const response = await fetch('/profile', {
+        const response = await fetch('https://invoice-sender-app.herokuapp.com/profile', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${login.token}`
@@ -66,7 +66,7 @@ const Invoice = () => {
             template: e.target.select.value
         }
 
-        const response = await fetch('/newinvoice', {
+        const response = await fetch('https://invoice-sender-app.herokuapp.com/newinvoice', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',

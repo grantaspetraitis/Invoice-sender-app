@@ -27,7 +27,7 @@ const ContactCard = (props) => {
             title: e.target.title.value
         }
 
-        const response = await fetch('/newsingleinvoice', {
+        const response = await fetch('https://invoice-sender-app.herokuapp.com/newsingleinvoice', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',
