@@ -171,6 +171,39 @@
   padding-bottom: 50px;
 }
 
+/* Hero */
+
+.hero-rect {
+  margin-top: 150px;
+  margin-left: 50px;
+  background: linear-gradient(130deg, #007655, rgb(140, 254, 211));
+  box-shadow: -50px -30px rgba(215, 215, 215, 0.492);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.home-container {
+  display: flex;
+  margin: 50px;
+  flex-direction: column;
+}
+
+.hero-paragraph {
+  color: white;
+  font-family: sans-serif;
+  width: 80%;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.form-container-home {
+  display: flex;
+  flex-direction: column;
+
+}
+
 @media (min-width: 1200px) {
 
   .navbar-container {
@@ -208,39 +241,41 @@
     transform: scale(105%)
   }
 
+  .hero-rect {
+    margin-top: 300px;
+    margin-left: 200px;
+    background: linear-gradient(130deg, #007655, rgb(140, 254, 211));
+    box-shadow: -50px -30px rgba(215, 215, 215, 0.492);
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / 1;
+    grid-row: 1 / 6;
+  }
+  
+  .home-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    grid-template-rows: repeat(10, 100px);
+  }
+  
+  .hero-paragraph {
+    color: white;
+    font-family: sans-serif;
+    width: 80%;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .form-container-home {
+    grid-column: 2 / 3;
+    grid-row: 4 / 8;
+  }
+
 }
 
-.hero-rect {
-  margin-top: 300px;
-  margin-left: 200px;
-  background: linear-gradient(130deg, #007655, rgb(140, 254, 211));
-  box-shadow: -50px -30px rgba(215, 215, 215, 0.492);
-  display: flex;
-  justify-content: center;
-  grid-column: 1 / 1;
-  grid-row: 1 / 6;
-}
 
-.home-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  grid-template-rows: repeat(10, 100px);
-}
-
-.hero-paragraph {
-  color: white;
-  font-family: sans-serif;
-  width: 80%;
-  font-size: 2em;
-  text-align: center;
-  margin-top: 50px;
-}
-
-.form-container-home {
-  grid-column: 2 / 3;
-  grid-row: 4 / 8;
-}
 
 /* Footer */
 
