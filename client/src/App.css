@@ -5,6 +5,10 @@
   padding: 30px;
 }
 
+.burger {
+  display: none;
+}
+
 .navbar li a {
   text-decoration: none;
   color: white;
@@ -163,6 +167,10 @@
     width: 100%;
     top: 0;
     z-index: 99;
+  }
+
+  .burger {
+    display: unset;
   }
 }
 

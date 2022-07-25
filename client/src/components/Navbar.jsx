@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../Context';
+import MenuIcon from '@mui/icons-material/Menu';
 
 
 const Navbar = () => {
@@ -16,6 +17,7 @@ const Navbar = () => {
     return (
         <nav className="navbar-container">
             <h1 style={{ color: "white", paddingLeft: 20, fontSize: "2em" }}>Invoice Sender</h1>
+            <MenuIcon className="burger" />
             <ul className="navbar">
                 {login ? (
                     <>
