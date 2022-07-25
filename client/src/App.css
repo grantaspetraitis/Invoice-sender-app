@@ -283,6 +283,11 @@
     width: 500px;
   }
 
+  .faq-container {
+    grid-column: 1 / 2;
+    grid-row: 6 / 10;
+  }
+
 }
 
 
@@ -336,4 +341,9 @@
 .form-account-update {
   margin-top: 200px;
   margin-bottom: 50px;
+}
+
+.faq-heading {
+  font-weight: bold;
+  list-style: none;
 }

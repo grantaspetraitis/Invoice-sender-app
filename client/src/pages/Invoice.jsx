@@ -85,7 +85,6 @@ const Invoice = () => {
         }
     }
 
-    console.log(checked)
 
     useEffect(() => {
         if (contacts === null) fetchContacts();

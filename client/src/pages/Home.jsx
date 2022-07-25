@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import FAQ from "../components/FAQ";
 import { AppContext } from "../Context";
 import Register from "./Register";
 
@@ -14,6 +15,9 @@ const Home = () => {
                 {
                     !login && <Register />
                 }
+            </div>
+            <div className="faq-container">
+                <FAQ />
             </div>
         </div>
     );
