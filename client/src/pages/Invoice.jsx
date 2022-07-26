@@ -102,7 +102,6 @@ const Invoice = () => {
         fetchDetails();
     }, [])
 
-    console.log(details)
 
     return (
         login ?
@@ -120,7 +119,9 @@ const Invoice = () => {
                         }
                     </div>
                     <div className="form-element">
-                        <h3 style={{ color: "#007655" }}>Your personal details are written in braces. Update them <Link style={{ textDecoration: "none" }} to='/details'>here</Link></h3>
+                        {
+                            details && 
+                            <h3 style={{ color: "#007655" }}>Your personal details are written in braces. Update them <Link style={{ textDecoration: "none" }} to='/details'>here</Link></h3>}
                         <label>Invoice title</label>
                         <input required className="input" type="text" value={title} placeholder="Invoice title" onChange={onChange} name="title" />
                     </div>
