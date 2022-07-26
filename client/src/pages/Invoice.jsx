@@ -153,7 +153,9 @@ const Invoice = () => {
                         :
                         <h3 style={{ color: "#007655" }}>Your personal details are missing. Add them <Link style={{ textDecoration: "none" }} to='/details'>here</Link></h3>
                     }
-                    <button className="btn">Send invoice(s)</button>
+                    {
+                        details && details.length > 0 &&
+                        <button className="btn">Send invoice(s)</button>}
                 </form>
             </> :
 
