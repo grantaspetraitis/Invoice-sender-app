@@ -21,7 +21,7 @@ const Invoice = () => {
         title: '',
         select: 'teal'
     });
-
+    const [details, setDetails] = useState(null);
 
     const { month, title } = formData;
 
@@ -30,6 +30,17 @@ const Invoice = () => {
             ...prevState,
             [e.target.name]: e.target.value
         }));
+    }
+
+    const fetchDetails = async e => {
+        const response = await fetch('https://invoice-sender-app.herokuapp.com/details', {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${login.token}`
+            }
+        })
+        const json = await response.json();
+        setDetails(json);
     }
 
     const fetchContacts = async e => {
@@ -88,6 +99,7 @@ const Invoice = () => {
 
     useEffect(() => {
         if (contacts === null) fetchContacts();
+        if (details === null) fetchDetails();
     }, [])
 
     return (
@@ -122,13 +134,13 @@ const Invoice = () => {
                         </select>
                     </div>
                     {
-                        formData.select === 'teal' && <Teal onChange={onChange} />
+                        formData.select === 'teal' && <Teal data={details} />
                     }
                     {
-                        formData.select === 'mango' && <Mango onChange={onChange} />
+                        formData.select === 'mango' && <Mango data={details}  />
                     }
                     {
-                        formData.select === 'strawberry' && <Strawberry onChange={onChange} />
+                        formData.select === 'strawberry' && <Strawberry data={details}  />
                     }
 
                     <button className="btn">Send invoice(s)</button>

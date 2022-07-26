@@ -103,7 +103,7 @@ const Details = () => {
 
                         <form className="form-account" onSubmit={onSubmit}>
                             <div className="form-element">
-                                <input required className="input" type="text" alue={activity_title} placeholder="Activity name" onChange={onChange} name="activity_title" />
+                                <input required className="input" type="text" value={activity_title} placeholder="Activity name" onChange={onChange} name="activity_title" />
                             </div>
                             <div className="form-element">
                                 <input required className="input" type="text" value={bank} placeholder="Bank" onChange={onChange} name="bank" />
