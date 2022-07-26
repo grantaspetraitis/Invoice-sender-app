@@ -99,11 +99,12 @@ const Invoice = () => {
 
     useEffect(() => {
         if (contacts === null) fetchContacts();
-        if (details === null) fetchDetails();
+        fetchDetails();
     }, [])
 
+
     return (
-        login ?
+        login && details ?
             <>
                 <h1 style={{ textAlign: "center", color: "#007655", marginTop: "200px" }}>Your invoice details</h1>
                 <form className="form" onSubmit={onSubmit}>
@@ -133,15 +134,17 @@ const Invoice = () => {
                             <option value="strawberry">Oregon (English)</option>
                         </select>
                     </div>
-                    {
-                        formData.select === 'teal' && <Teal data={details && details} />
-                    }
-                    {
-                        formData.select === 'mango' && <Mango data={details && details}  />
-                    }
-                    {
-                        formData.select === 'strawberry' && <Strawberry data={details && details}  />
-                    }
+
+                        {
+                            formData.select === 'teal' && <Teal data={details} />
+                        }
+                        {
+                            formData.select === 'mango' && <Mango data={details} />
+                        }
+                        {
+                            formData.select === 'strawberry' && <Strawberry data={details} />
+                        }
+                    
 
                     <button className="btn">Send invoice(s)</button>
                 </form>
