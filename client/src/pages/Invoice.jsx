@@ -135,17 +135,16 @@ const Invoice = () => {
                             <option value="strawberry">Oregon (English)</option>
                         </select>
                     </div>
-
+                        
                         {
-                            details ? formData.select === 'teal' && <Teal data={details} /> : <h3>Add your personal details <Link style={{ textDecoration: "none" }} to='/details'>here</Link></h3>
+                            details.length > 0 && formData.select === 'teal' && <Teal data={details} />
                         }
                         {
-                            details ? formData.select === 'mango' && <Mango data={details} /> : <h3>Add your personal details <Link style={{ textDecoration: "none" }} to='/details'>here</Link></h3>
+                            details.length > 0 && formData.select === 'mango' && <Mango data={details} />
                         }
                         {
-                            details ? formData.select === 'strawberry' && <Strawberry data={details} /> : <h3>Add your personal details <Link style={{ textDecoration: "none" }} to='/details'>here</Link></h3>
+                            details.length > 0 && formData.select === 'strawberry' && <Strawberry data={details} />
                         }
-                    
 
                     <button className="btn">Send invoice(s)</button>
                 </form>

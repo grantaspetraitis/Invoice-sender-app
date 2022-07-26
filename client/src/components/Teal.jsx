@@ -1,6 +1,7 @@
 const Teal = (props) => {
 
     return (
+        
         <div className="preview">
             <h3 style={{ color: "#007655" }}>Sveiki, tėveliai,</h3>
             <p>Siunčiu Jums sąskaitą ir prašau apmokėti už (<span className="italic">mėnesis</span>) mėn. būrelį (<span className="italic">{props.data[0].activity_name}</span>). Dėkoju, kad suteikiate savo vaikui galimybę lankyti (<span className="italic">{props.data[0].activity_name}</span>).</p>
