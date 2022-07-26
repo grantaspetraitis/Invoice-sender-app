@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import AppContextProvider from './Context';
 import Navbar from './components/Navbar';
@@ -11,8 +11,11 @@ import Verify from './pages/Verify';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
 import Details from './pages/Details';
+import FAQ from './components/FAQ';
+import { useEffect } from 'react';
 
 function App() {
+
   return (
     <AppContextProvider>
       <Toaster
@@ -21,8 +24,7 @@ function App() {
         toastOptions={{
           duration: 9000
         }}
-        />
-      <Router>
+      />
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -32,9 +34,9 @@ function App() {
           <Route path='/verify/:token' element={<Verify />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/details' element={<Details />} />
+          <Route path='#faq' element={<FAQ />} />
         </Routes>
         <Footer />
-      </Router>
     </AppContextProvider>
   );
 }

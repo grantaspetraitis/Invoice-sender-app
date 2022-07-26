@@ -24,10 +24,10 @@ const Navbar = () => {
     return (
         <nav className="navbar-container">
             <h1 style={{ color: "white", paddingLeft: 20, fontSize: "2em" }}>Invoice Sender</h1>
-            <div className={burger ? "hidden" : "burger-style" }>
+            <div className={burger ? "hidden" : "burger-style"}>
                 <MenuIcon className="burger" onClick={onClick} />
             </div>
-            <div className={burger ? "close-icon" : "hidden" }>
+            <div className={burger ? "close-icon" : "hidden"}>
                 <CloseIcon onClick={onClick} />
             </div>
             {
@@ -48,7 +48,6 @@ const Navbar = () => {
                                 <li>
                                     <span style={{ cursor: "pointer" }} onClick={logout}>Log out</span>
                                 </li>
-
                             </ul>
 
                             :
@@ -97,10 +96,14 @@ const Navbar = () => {
                         <li>
                             <Link to="/register">Register</Link>
                         </li>
+                        <li>
+                            <Link to={{
+                                pathname: '/',
+                                hash: '#faq'
+                            }}>FAQ</Link>
+                        </li>
                     </>
                 )}
-
-
             </ul>
         </nav>
     );
