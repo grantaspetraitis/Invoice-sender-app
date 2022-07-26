@@ -7,7 +7,7 @@ const Mango = (props) => {
             <p>Bankas: (<span className="italic">{props.data[0].bank}</span>)</p>
             <p>Gavėjas: (<span className="italic">{props.data[0].recipient_name}</span>)</p>
             <p>Sąskaitos nr.: (<span className="italic">{props.data[0].account_no}</span>)</p>
-            <p>Kaina: (<span className="italic">{props.data[0].price} Eur</span>)</p>
+            <p>Kaina: (<span className="italic">{props.data[0].price}</span>) Eur</p>
             <p>Mokėjimo paskirtyje nurodykite vaiko vardą ir už kurį mėnesį mokate.</p>
             <p>Pagarbiai,</p>
             <p>(<span className="italic">{props.data[0].activity_name}</span>) vadovas (<span className="italic">{props.data[0].teacher_name}</span>)</p>
