@@ -102,6 +102,7 @@ const Invoice = () => {
         fetchDetails();
     }, [])
 
+    console.log(details)
 
     return (
         login ?
@@ -136,16 +137,16 @@ const Invoice = () => {
                         </select>
                     </div>
                     {
-                        details !== undefined ?
+                        details ?
                         <>
                             {
-                                details && formData.select === 'teal' && <Teal data={details} />
+                                formData.select === 'teal' && <Teal data={details} />
                             }
                             {
-                                details && formData.select === 'mango' && <Mango data={details} />
+                                formData.select === 'mango' && <Mango data={details} />
                             }
                             {
-                                details && formData.select === 'strawberry' && <Strawberry data={details} />
+                                formData.select === 'strawberry' && <Strawberry data={details} />
                             }
                         </>
                         :
