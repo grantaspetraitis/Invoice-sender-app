@@ -134,13 +134,13 @@ const Invoice = () => {
                         </select>
                     </div>
                     {
-                        formData.select === 'teal' && <Teal data={details} />
+                        formData.select === 'teal' && <Teal data={details && details} />
                     }
                     {
-                        formData.select === 'mango' && <Mango data={details}  />
+                        formData.select === 'mango' && <Mango data={details && details}  />
                     }
                     {
-                        formData.select === 'strawberry' && <Strawberry data={details}  />
+                        formData.select === 'strawberry' && <Strawberry data={details && details}  />
                     }
 
                     <button className="btn">Send invoice(s)</button>
