@@ -8,7 +8,7 @@ const Strawberry = (props) => {
             <p>Bank: (<span className="italic">{props.data[0].bank}</span>)</p>
             <p>Recipient: (<span className="italic">{props.data[0].recipient_name}</span>)</p>
             <p>Account no.: (<span className="italic">{props.data[0].account_no}</span>)</p>
-            <p>To pay: (<span className="italic">{props.data[0].price}</span>)</p>
+            <p>To pay: (<span className="italic">{props.data[0].price} Eur</span>)</p>
             <p>Please enter your child's name and the month you're paying for in the details of the transaction.</p>
             <p>Sincerely,</p>
             <p>(<span className="italic">{props.data[0].activity_name}</span>) teacher (<span className="italic">{props.data[0].teacher_name}</span>)</p>
