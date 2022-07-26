@@ -20,7 +20,6 @@ const Home = () => {
     }, [hash]);
 
     const { login } = useContext(AppContext);
-    console.log(hash)
 
     return (
         <div className="home-container">

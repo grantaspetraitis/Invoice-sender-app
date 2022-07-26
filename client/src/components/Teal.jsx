@@ -1,6 +1,6 @@
 const Teal = (props) => {
 
-
+    console.log(props)
     return (
         <div className="preview">
             <h3 style={{ color: "#007655" }}>Sveiki, tėveliai,</h3>
