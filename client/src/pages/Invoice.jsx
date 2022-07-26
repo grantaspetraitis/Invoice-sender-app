@@ -136,7 +136,7 @@ const Invoice = () => {
                         </select>
                     </div>
                     {
-                        details ?
+                        details !== undefined ?
                         <>
                             {
                                 details && formData.select === 'teal' && <Teal data={details} />
