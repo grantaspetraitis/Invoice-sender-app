@@ -1,19 +1,17 @@
 const Teal = (props) => {
 
-    console.log(props)
-
     return (
         <div className="preview">
             <h3 style={{ color: "#007655" }}>Sveiki, tėveliai,</h3>
-            <p>Siunčiu Jums sąskaitą ir prašau apmokėti už (<span className="italic">mėnesis</span>) mėn. būrelį (<span className="italic">{props.data[0].activity_name}</span>). Dėkoju, kad suteikiate savo vaikui galimybę lankyti (<span className="italic">būrelio pavadinimas</span>)</p>
-            <p>Bankas: (<span className="italic">banko pavadinimas</span>)</p>
-            <p>Gavėjas: (<span className="italic">gavėjo vardas</span>)</p>
-            <p>Sąskaitos nr.: (<span className="italic">sąskaitos nr.</span>)</p>
-            <p>Kaina: (<span className="italic">kaina</span>)</p>
+            <p>Siunčiu Jums sąskaitą ir prašau apmokėti už (<span className="italic">mėnesis</span>) mėn. būrelį (<span className="italic">{props.data[0].activity_name}</span>). Dėkoju, kad suteikiate savo vaikui galimybę lankyti (<span className="italic">{props.data[0].activity_name}</span>).</p>
+            <p>Bankas: (<span className="italic">{props.data[0].bank}</span>)</p>
+            <p>Gavėjas: (<span className="italic">{props.data[0].recipient_name}</span>)</p>
+            <p>Sąskaitos nr.: (<span className="italic">{props.data[0].account_no}</span>)</p>
+            <p>Kaina: (<span className="italic">{props.data[0].price}</span>)</p>
             <p>Mokėjimo paskirtyje nurodykite vaiko vardą ir už kurį mėnesį mokate.</p>
             <p>Pagarbiai,</p>
-            <p>(<span className="italic">būrelio pavadinimas</span>) vadovas (<span className="italic">vadovo vardas</span>)</p>
-            <p>Telefono nr.: (<span className="italic">tel. nr.</span>)</p>
+            <p>(<span className="italic">{props.data[0].activity_name}</span>) vadovas (<span className="italic">{props.data[0].teacher_name}</span>)</p>
+            <p>Telefono nr.: (<span className="italic">{props.data[0].aphone}</span>)</p>
         </div>
     );
 }

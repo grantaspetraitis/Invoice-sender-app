@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Mango from "../components/Mango";
 import Strawberry from "../components/Strawberry";
 import Teal from "../components/Teal";
@@ -119,6 +119,7 @@ const Invoice = () => {
                         }
                     </div>
                     <div className="form-element">
+                        <h3 style={{ color: "#007655" }}>Your personal details are written in braces. Update them <Link to='/details'>here</Link></h3>
                         <label>Invoice title</label>
                         <input required className="input" type="text" value={title} placeholder="Invoice title" onChange={onChange} name="title" />
                     </div>
