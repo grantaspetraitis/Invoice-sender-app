@@ -104,7 +104,7 @@ const Invoice = () => {
 
 
     return (
-        login && details ?
+        login ?
             <>
                 <h1 style={{ textAlign: "center", color: "#007655", marginTop: "200px" }}>Your invoice details</h1>
                 <form className="form" onSubmit={onSubmit}>
@@ -136,13 +136,13 @@ const Invoice = () => {
                     </div>
 
                         {
-                            formData.select === 'teal' && <Teal data={details} />
+                            details && formData.select === 'teal' && <Teal data={details} />
                         }
                         {
-                            formData.select === 'mango' && <Mango data={details} />
+                            details && formData.select === 'mango' && <Mango data={details} />
                         }
                         {
-                            formData.select === 'strawberry' && <Strawberry data={details} />
+                            details && formData.select === 'strawberry' && <Strawberry data={details} />
                         }
                     
 
