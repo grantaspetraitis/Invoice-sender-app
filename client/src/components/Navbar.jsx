@@ -46,13 +46,13 @@ const Navbar = () => {
                                     <Link to="/details">Account details</Link>
                                 </li>
                                 <li>
-                                    <span style={{ cursor: "pointer" }} onClick={logout}>Log out</span>
-                                </li>
-                                <li>
                                     <Link to={{
                                         pathname: '/',
                                         hash: '#faq'
                                     }}>FAQ</Link>
+                                </li>
+                                <li>
+                                    <span style={{ cursor: "pointer" }} onClick={logout}>Log out</span>
                                 </li>
                             </ul>
 
@@ -92,15 +92,14 @@ const Navbar = () => {
                             <Link to="/details">Account details</Link>
                         </li>
                         <li>
-                            <span style={{ cursor: "pointer" }} onClick={logout}>Log out</span>
-                        </li>
-                        <li>
                             <Link to={{
                                 pathname: '/',
                                 hash: '#faq'
                             }}>FAQ</Link>
                         </li>
-
+                        <li>
+                            <span style={{ cursor: "pointer" }} onClick={logout}>Log out</span>
+                        </li>
                     </>
 
                 ) : (
