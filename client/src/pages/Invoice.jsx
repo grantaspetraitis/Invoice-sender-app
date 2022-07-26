@@ -135,17 +135,22 @@ const Invoice = () => {
                             <option value="strawberry">Oregon (English)</option>
                         </select>
                     </div>
-                        
-                        {
-                            details.length > 0 && formData.select === 'teal' && <Teal data={details} />
-                        }
-                        {
-                            details.length > 0 && formData.select === 'mango' && <Mango data={details} />
-                        }
-                        {
-                            details.length > 0 && formData.select === 'strawberry' && <Strawberry data={details} />
-                        }
-
+                    {
+                        details ?
+                        <>
+                            {
+                                details && formData.select === 'teal' && <Teal data={details} />
+                            }
+                            {
+                                details && formData.select === 'mango' && <Mango data={details} />
+                            }
+                            {
+                                details && formData.select === 'strawberry' && <Strawberry data={details} />
+                            }
+                        </>
+                        :
+                        <h3 style={{ color: "#007655" }}>Your personal details are missing. Add them <Link style={{ textDecoration: "none" }} to='/details'>here</Link></h3>
+                    }
                     <button className="btn">Send invoice(s)</button>
                 </form>
             </> :
