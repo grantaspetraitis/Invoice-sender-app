@@ -137,7 +137,7 @@ const Invoice = () => {
                         </select>
                     </div>
                     {
-                        details.length > 0 ?
+                        details && details.length > 0 ?
                         <>
                             {
                                 formData.select === 'teal' && <Teal data={details} />
